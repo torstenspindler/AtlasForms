@@ -2,7 +2,7 @@
     "name": "mongodb-atlas",
     "type": "mongodb-atlas",
     "config": {
-        "clusterName": "AtlasCluster",
+        "clusterName": "TS-Edu-Dedicated",
         "readPreference": "primaryPreferred",
         "wireProtocolEnabled": false
     },
