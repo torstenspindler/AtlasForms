@@ -3,8 +3,8 @@ function verify(grant, targetRecord, proposedEdit) {
   grant.message = ''; //Use this to return an error to user
 
   try {
-    console.log(proposedEdit)
-    console.log(targetRecord)
+    console.log(EJSON.stringify(proposedEdit, null, 2))
+    console.log(EJSON.stringify(targetRecord, null, 2))
     if (proposedEdit && proposedEdit.comments && proposedEdit.comments.length > 0) {
       for (var i = 0; i < proposedEdit.comments.length; i++) {
         if (targetRecord.comments &&
