@@ -10,9 +10,10 @@
     // If you assume yes use a try/catch to ensure you don't allow
     // on a bug.
   
-    grant.granted = true
-    grant.message = 'Access granted'
+    grant.granted = false
+    grant.message = 'Because it\'s against the rules.'
 
+    console.log(EJSON.stringify(args, null, 2));
   }
   
   exports = function () {
