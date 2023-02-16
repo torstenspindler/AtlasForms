@@ -80,7 +80,7 @@
     {
         "name": "verify_EDIT_support_casePortal",
         "private": false,
-        "disable_arg_logs": true
+        "disable_arg_logs": false
     },
     {
         "name": "importDocType",
