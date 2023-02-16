@@ -53,6 +53,11 @@
         "run_as_system": true
     },
     {
+        "name": "verify_EDIT_support_casePortal",
+        "private": true,
+        "run_as_system": true
+    },
+    {
         "name": "internalCommitEdit",
         "private": true,
         "run_as_system": true,
