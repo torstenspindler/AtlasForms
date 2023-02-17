@@ -18,6 +18,8 @@ function verify(grant, targetRecord, proposedEdit) {
               proposedEdit[date_publishedKey] = new Date()
             }
             if (value == "false") {
+              // How to delete a set or unset key in the targetRecord
+              // Quick hack to set date_published to Epoch 0
               proposedEdit[date_publishedKey] = new Date(0)
             }
           }
