@@ -9,17 +9,17 @@ function verify(grant, targetRecord, proposedEdit) {
     // We ignore targetRecord, but we better fetch it and check that published was false for the comment, just in case
     // Also we override date_published if it was set before ...
     if (proposedEdit) {
-      console.log(1)
+      console.log(`keys: ${Object.keys(proposedEdit)}`)
       for (const key in Object.keys(proposedEdit)) {
-        console.log(`key: ${key}`)
-        if (proposedEdit[key].published == true && proposedEdit[key].date_published === undefined) {
-          console.log("Setting publish date")
-          proposedEdit[key].date_published = new Date()
-        }
-        if (proposedEdit[key].published == false && proposedEdit[key].date_published !== undefined) {
-          console.log("Removing publish date")
-          delete proposedEdit[key].date_published
-        }
+        console.log(`key: ${key}, value: ${proposedEdit[key]}`)
+        // if (proposedEdit.comments[key].published == true && proposedEdit.comments[key].date_published === undefined) {
+        //   console.log("Setting publish date")
+        //   proposedEdit.comments[key].date_published = new Date()
+        // }
+        // if (proposedEdit.comments[key].published == false && proposedEdit.comments[key].date_published !== undefined) {
+        //   console.log("Removing publish date")
+        //   delete proposedEdit.comments[key].date_published
+        // }
       }
     }
   } catch (e) {
