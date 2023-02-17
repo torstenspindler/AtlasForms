@@ -3,10 +3,10 @@ function verify(grant, targetRecord, proposedEdit) {
   grant.message = ''; //Use this to return an error to user
 
   console.log("just a test")
-  
+
   try {
-    console.log(EJSON.stringify(proposedEdit, null, 2))
-    console.log(EJSON.stringify(targetRecord, null, 2))
+    console.log(`proposedEdit: ${EJSON.stringify(proposedEdit, null, 2)}`)
+    console.log(`targetRecord: ${EJSON.stringify(targetRecord, null, 2)}`)
     if (proposedEdit && proposedEdit.comments && proposedEdit.comments.length > 0) {
       for (var i = 0; i < proposedEdit.comments.length; i++) {
         if (targetRecord.comments &&
