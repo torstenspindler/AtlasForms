@@ -3,7 +3,8 @@ function verify(grant, targetRecord, proposedEdit) {
   grant.message = ''; //Use this to return an error to user
 
   try {
-    console.log(`proposedEdit: ${EJSON.stringify(proposedEdit, null, 2)}`)
+    console.log(`proposedEdit, stringified: ${EJSON.stringify(proposedEdit, null, 2)}`)
+    console.log(`proposedEdit: ${proposedEdit}`)
     console.log(`targetRecord: ${EJSON.stringify(targetRecord, null, 2)}`)
     // We ignore targetRecord, but we better fetch it and check that published was false for the comment, just in case
     // Also we override date_published if it was set before ...
