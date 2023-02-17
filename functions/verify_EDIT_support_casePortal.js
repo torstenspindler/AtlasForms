@@ -6,18 +6,16 @@ function verify(grant, targetRecord, proposedEdit) {
     console.log(`proposedEdit, stringified: ${EJSON.stringify(proposedEdit, null, 2)}`)
     console.log(`targetRecord: ${EJSON.stringify(targetRecord, null, 2)}`)
     // We ignore targetRecord, but we better fetch it and check that published was false for the comment, just in case
-    // Also we override date_published if it was set before ...
     if (proposedEdit) {
-      // This is a royal hackery, there has to be a better way!
       for (const [key, value] of Object.entries(proposedEdit)) {
-        if (key.startsWith("comments.")) {
-          console.log(`key: ${key}, value: ${proposedEdit[key]}`)
-          if (key.endsWith(".published")) {
-          const date_publishedKey = key.replace(".published", ".date_published")
-            if (value == "true" && proposedEdit[date_publishedKey] == undefined) {
+        if (key.startsWith('comments.')) {
+          [comments, index, fieldname] = key.split(/\./)
+          if (fieldname == 'published') {
+            const date_publishedKey = [comments, index, 'date_published'].join('.')
+            if (value == 'true' && proposedEdit[date_publishedKey] == undefined) {
               proposedEdit[date_publishedKey] = new Date()
             }
-            if (value == "false") {
+            if (value == 'false') {
               // How to delete a set or unset key in the targetRecord
               // Quick hack to set date_published to Epoch 0
               proposedEdit[date_publishedKey] = new Date(0)
