@@ -2,6 +2,8 @@ function verify(grant, targetRecord, proposedEdit) {
   grant.granted = true; //Allow the change
   grant.message = ''; //Use this to return an error to user
 
+  console.log("just a test")
+  
   try {
     console.log(EJSON.stringify(proposedEdit, null, 2))
     console.log(EJSON.stringify(targetRecord, null, 2))
