@@ -17,8 +17,8 @@ function verify(grant, targetRecord, proposedEdit) {
             if (value == "true" && proposedEdit[date_publishedKey] == undefined) {
               proposedEdit[date_publishedKey] = new Date()
             }
-            if (value == "false" && proposedEdit[date_publishedKey]) {
-              delete proposedEdit[date_publishedKey]
+            if (value == "false") {
+              proposedEdit[date_publishedKey] = new Date(0)
             }
           }
         }
