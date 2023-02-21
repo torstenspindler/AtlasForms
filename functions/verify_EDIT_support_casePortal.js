@@ -1,4 +1,3 @@
-
 function verify(grant, targetRecord, proposedEdit) {
   grant.granted = true; //Allow the change
   grant.message = ''; //Use this to return an error to user
@@ -15,7 +14,7 @@ function verify(grant, targetRecord, proposedEdit) {
             const date_publishedKey = [comments, index, 'date_published'].join('.')
             if (value == 'true' && proposedEdit[date_publishedKey] == undefined) {
               proposedEdit[date_publishedKey] = new Date()
-              sendToWebhook({text: `This case has a new comment: ${targetRecord}`})
+              // sendToWebhook({text: `This case has a new comment: ${targetRecord}`})
 
             }
             if (value == 'false') {
@@ -34,11 +33,11 @@ function verify(grant, targetRecord, proposedEdit) {
 }
 
 exports = function () {
-
   const axios = require('axios'); // is allowed here
   function sendToWebhook(msg){
+    // const axios = require('axios'); // is allowed here
     var success = true;
-    axios.post("%%values.webhook_value", msg)
+    axios.post("%%values.webhook", msg)
       .then(response => {
          console.log(response.data);
   
