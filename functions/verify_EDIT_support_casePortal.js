@@ -38,6 +38,7 @@ exports = function () {
   function sendToWebhook(msg) {
     // const axios = require('axios'); // is allowed here
     var success = true;
+    console.log(context.values.get('webhook_value'))
     axios.post(context.values.get('webhook_value'), {'text': 'hello world'})
       .then(response => {
          console.log(response.data);
@@ -46,7 +47,7 @@ exports = function () {
       .catch(error => {
         console.log(error);
         success = false
-      });
+      })
     return {success: success}
   };
   
