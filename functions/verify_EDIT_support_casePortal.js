@@ -2,7 +2,7 @@ function verify(grant, targetRecord, proposedEdit) {
   function sendToWebhook(msg) {
     // const axios = require('axios'); // is allowed here
     var success = true;
-    console.log(context.values.get('webhook_value'))
+    console.log(`webhook_value: ${context.values.get('webhook_value')}`)
     axios.post(context.values.get('webhook_value'), {'text': 'hello world'})
       .then(response => {
          console.log(response.data);
