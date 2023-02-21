@@ -14,7 +14,7 @@ function verify(grant, targetRecord, proposedEdit) {
             const date_publishedKey = [comments, index, 'date_published'].join('.')
             if (value == 'true' && proposedEdit[date_publishedKey] == undefined) {
               proposedEdit[date_publishedKey] = new Date()
-              // sendToWebhook({text: `This case has a new comment: ${targetRecord}`})
+              sendToWebhook({text: `This case has a new comment: ${targetRecord}`})
 
             }
             if (value == 'false') {
@@ -37,7 +37,7 @@ exports = function () {
   function sendToWebhook(msg){
     // const axios = require('axios'); // is allowed here
     var success = true;
-    axios.post("%%values.webhook", msg)
+    axios.post(context.values.get('webhook_value'), msg)
       .then(response => {
          console.log(response.data);
   
