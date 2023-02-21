@@ -1,29 +1,28 @@
 [
     {
-        "name": "newAuthorization",
+        "name": "getPicklists",
+        "private": false,
+        "run_as_system": true,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "verify_EDIT___atlasforms_doctypes",
         "private": true,
-        "run_as_system": true,
-        "disable_arg_logs": true
+        "run_as_system": true
     },
     {
-        "name": "utility_functions",
-        "private": false,
-        "disable_arg_logs": true
-    },
-    {
-        "name": "verify_CREATE_support_casePortal",
-        "private": false,
-        "disable_arg_logs": true
-    },
-    {
-        "name": "getDocTypeSchemaInfo",
-        "private": false,
-        "run_as_system": true,
-        "disable_arg_logs": true
+        "name": "verify_EDIT_support_casePortal",
+        "private": false
     },
     {
         "name": "getListOfDoctypes",
         "private": false,
+        "run_as_system": true,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "newAuthorization",
+        "private": true,
         "run_as_system": true,
         "disable_arg_logs": true
     },
@@ -33,11 +32,29 @@
         "run_as_system": true
     },
     {
-        "name": "verify_EDIT_support_casePortal",
-        "private": false
+        "name": "getDocTypeSchemaInfo",
+        "private": false,
+        "run_as_system": true,
+        "disable_arg_logs": true
     },
     {
-        "name": "commitEdit",
+        "name": "verify_CREATE_support_casePortal",
+        "private": false,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "utility_functions",
+        "private": false,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "internalCommitEdit",
+        "private": true,
+        "run_as_system": true,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "lockDocument",
         "private": false,
         "run_as_system": true,
         "disable_arg_logs": true
@@ -48,13 +65,18 @@
         "run_as_system": true
     },
     {
-        "name": "importDocType",
-        "private": false,
+        "name": "verify_CREATE___atlasforms_doctypes",
+        "private": true,
+        "run_as_system": true
+    },
+    {
+        "name": "ADMIN_PicklistGenerator",
+        "private": true,
         "run_as_system": true,
         "disable_arg_logs": true
     },
     {
-        "name": "createDocument",
+        "name": "commitEdit",
         "private": false,
         "run_as_system": true,
         "disable_arg_logs": true
@@ -66,34 +88,14 @@
         "disable_arg_logs": true
     },
     {
-        "name": "verify_CREATE___atlasforms_doctypes",
-        "private": true,
-        "run_as_system": true
-    },
-    {
-        "name": "verify_EDIT___atlasforms_doctypes",
-        "private": true,
-        "run_as_system": true
-    },
-    {
-        "name": "newUserSignup",
-        "private": true
-    },
-    {
-        "name": "ADMIN_PicklistGenerator",
-        "private": true,
-        "run_as_system": true,
-        "disable_arg_logs": true
-    },
-    {
-        "name": "getPicklists",
+        "name": "createDocument",
         "private": false,
         "run_as_system": true,
         "disable_arg_logs": true
     },
     {
-        "name": "internalCommitEdit",
-        "private": true,
+        "name": "importDocType",
+        "private": false,
         "run_as_system": true,
         "disable_arg_logs": true
     },
@@ -104,9 +106,7 @@
         "disable_arg_logs": true
     },
     {
-        "name": "lockDocument",
-        "private": false,
-        "run_as_system": true,
-        "disable_arg_logs": true
+        "name": "newUserSignup",
+        "private": true
     }
 ]

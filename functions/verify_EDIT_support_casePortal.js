@@ -1,5 +1,6 @@
 function verify(grant, targetRecord, proposedEdit) {
-  function sendToWebhook(msg) {
+  
+  /*function sendToWebhook(msg) {
     // const axios = require('axios'); // is allowed here
     var success = true;
     console.log(`webhook_value: ${context.values.get('webhook_value')}`)
@@ -13,7 +14,7 @@ function verify(grant, targetRecord, proposedEdit) {
         success = false
       })
     return {success: success}
-  };
+  };*/
 
   grant.granted = true; //Allow the change
   grant.message = ''; //Use this to return an error to user
@@ -22,7 +23,7 @@ function verify(grant, targetRecord, proposedEdit) {
     console.log(`proposedEdit, stringified: ${EJSON.stringify(proposedEdit, null, 2)}`)
     console.log(`targetRecord: ${EJSON.stringify(targetRecord, null, 2)}`)
     // We ignore targetRecord, but we better fetch it and check that published was false for the comment, just in case
-    if (proposedEdit) {
+    /*if (proposedEdit) {
       for (const [key, value] of Object.entries(proposedEdit)) {
         if (key.startsWith('comments.')) {
           [comments, index, fieldname] = key.split(/\./)
@@ -41,16 +42,17 @@ function verify(grant, targetRecord, proposedEdit) {
           }
         }
       }
-    }
+    }*/
   } catch (e) {
     grant.message = `${e}`
     grant.granted = false // Fail on error
   }
 }
 
-exports = function () {
+exports = async function () {
   // Check sendToWebhook, force deployment
   const axios = require('axios'); // is allowed here
   // Don't call the function - just return it so we can call it by reference.
-  return verify
+  return "hello workd"
+  return await verify;
 }
