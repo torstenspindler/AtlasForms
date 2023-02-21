@@ -2,7 +2,7 @@ function sendToWebhook(msg){
   // this does not work in this function it seems:
   // const axios = require('axios'); // is allowed here
   var success = true;
-  axios.post("%%values.webook", msg)
+  axios.post("%%values.webhook", msg)
     .then(response => {
        console.log(response.data);
 
