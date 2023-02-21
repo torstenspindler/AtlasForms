@@ -1,4 +1,20 @@
 function verify(grant, targetRecord, proposedEdit) {
+  function sendToWebhook(msg) {
+    // const axios = require('axios'); // is allowed here
+    var success = true;
+    console.log(context.values.get('webhook_value'))
+    axios.post(context.values.get('webhook_value'), {'text': 'hello world'})
+      .then(response => {
+         console.log(response.data);
+  
+      })
+      .catch(error => {
+        console.log(error);
+        success = false
+      })
+    return {success: success}
+  };
+
   grant.granted = true; //Allow the change
   grant.message = ''; //Use this to return an error to user
 
@@ -35,23 +51,6 @@ function verify(grant, targetRecord, proposedEdit) {
 exports = function () {
   // Check sendToWebhook, force deployment
   const axios = require('axios'); // is allowed here
-  function sendToWebhook(msg) {
-    // const axios = require('axios'); // is allowed here
-    var success = true;
-    console.log(context.values.get('webhook_value'))
-    axios.post(context.values.get('webhook_value'), {'text': 'hello world'})
-      .then(response => {
-         console.log(response.data);
-  
-      })
-      .catch(error => {
-        console.log(error);
-        success = false
-      })
-    return {success: success}
-  };
-  
-  
   // Don't call the function - just return it so we can call it by reference.
   return verify
 }
