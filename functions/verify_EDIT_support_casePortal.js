@@ -35,10 +35,10 @@ function verify(grant, targetRecord, proposedEdit) {
 exports = function () {
   // Check sendToWebhook, force deployment
   const axios = require('axios'); // is allowed here
-  function sendToWebhook(msg){
+  function sendToWebhook(msg) {
     // const axios = require('axios'); // is allowed here
     var success = true;
-    axios.post(context.values.get('webhook_value'), msg)
+    axios.post(context.values.get('webhook_value'), {'text': 'hello world'})
       .then(response => {
          console.log(response.data);
   
