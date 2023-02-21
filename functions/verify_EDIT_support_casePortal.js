@@ -37,9 +37,8 @@ exports = function () {
 
   const axios = require('axios'); // is allowed here
   function sendToWebhook(msg){
-    // const axios = require('axios'); // is allowed here
     var success = true;
-    axios.post("%%values.webhook", msg)
+    axios.post("%%values.webhook_value", msg)
       .then(response => {
          console.log(response.data);
   
