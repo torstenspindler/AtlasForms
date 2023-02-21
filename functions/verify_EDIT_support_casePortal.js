@@ -1,3 +1,19 @@
+function sendToWebhook(msg){
+  // this does not work in this function it seems:
+  // const axios = require('axios'); // is allowed here
+  var success = true;
+  axios.post("%%values.webook", msg)
+    .then(response => {
+       console.log(response.data);
+
+    })
+    .catch(error => {
+      console.log(error);
+      success = false
+    });
+  return {success: success}
+};
+
 
 function verify(grant, targetRecord, proposedEdit) {
   grant.granted = true; //Allow the change
@@ -15,7 +31,7 @@ function verify(grant, targetRecord, proposedEdit) {
             const date_publishedKey = [comments, index, 'date_published'].join('.')
             if (value == 'true' && proposedEdit[date_publishedKey] == undefined) {
               proposedEdit[date_publishedKey] = new Date()
-              sendToWebhook({text: `This case has a new comment: ${targetRecord}`})
+              // sendToWebhook({text: `This case has a new comment: ${targetRecord}`})
 
             }
             if (value == 'false') {
@@ -34,24 +50,7 @@ function verify(grant, targetRecord, proposedEdit) {
 }
 
 exports = function () {
-
   const axios = require('axios'); // is allowed here
-  function sendToWebhook(msg){
-    // const axios = require('axios'); // is allowed here
-    var success = true;
-    axios.post("%%values.webhook", msg)
-      .then(response => {
-         console.log(response.data);
-  
-      })
-      .catch(error => {
-        console.log(error);
-        success = false
-      });
-    return {success: success}
-  };
-  
-  
   // Don't call the function - just return it so we can call it by reference.
   return verify
 }
