@@ -510,14 +510,21 @@ async function formsOnLoad () {
     formAlert(appStrings.AF_SERVER_ERROR(message))
     return
   }
-  vueApp.docTypes = docTypes
-  // Set the Document Type dropdown to the first value
-  if (vueApp.docTypes.length > 0) {
-    vueApp.selectedDocType = vueApp.docTypes?.[0] // Null on empty list
-    await vueApp.selectDocType()
-    vueApp.editing = true // Can edit in empty form
-    vueApp.ready = true;
+
+  const paramsString = 'entity=CasePortal&_id=63ede77bdb2af5bf9b05faf2';
+  const searchParams = new URLSearchParams(paramsString);
+  if (searchParams.entity == 'CasePortal' && searchParams._id) {
+    autoSearch("support.casePortal", {'_id': searchParams._id});
   } else {
-    formAlert(appStrings.AF_NO_DOCTYPES)
+    vueApp.docTypes = docTypes
+    // Set the Document Type dropdown to the first value
+    if (vueApp.docTypes.length > 0) {
+      vueApp.selectedDocType = vueApp.docTypes?.[0] // Null on empty list
+      await vueApp.selectDocType()
+      vueApp.editing = true // Can edit in empty form
+      vueApp.ready = true;
+    } else {
+      formAlert(appStrings.AF_NO_DOCTYPES)
+    }
   }
 }
