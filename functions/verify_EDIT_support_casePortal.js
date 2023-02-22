@@ -32,7 +32,7 @@ function verify(grant, targetRecord, proposedEdit) {
             if (value == 'true' && proposedEdit[date_publishedKey] == undefined) {
               proposedEdit[date_publishedKey] = new Date()
               const url = `https://atlasforms-bbmnx.mongodbstitch.com/formsapp/formsapp.html?entity=CasePortal&_id=${targetRecord}`
-              sendToWebhook({text: `This case has a new comment: ${url}`})
+              sendToWebhook({text: `This case has a published comment: ${url}`})
 
             }
             if (value == 'false') {
