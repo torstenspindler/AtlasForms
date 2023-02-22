@@ -31,7 +31,8 @@ function verify(grant, targetRecord, proposedEdit) {
             const date_publishedKey = [comments, index, 'date_published'].join('.')
             if (value == 'true' && proposedEdit[date_publishedKey] == undefined) {
               proposedEdit[date_publishedKey] = new Date()
-              sendToWebhook({text: `This case has a new comment: ${targetRecord}`})
+              const url = `https://atlasforms-bbmnx.mongodbstitch.com/formsapp/formsapp.html?entity=CasePortal&_id=${targetRecord}`
+              sendToWebhook({text: `This case has a new comment: ${url}`})
 
             }
             if (value == 'false') {
