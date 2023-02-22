@@ -520,6 +520,7 @@ async function formsOnLoad () {
     vueApp.ready = true;
     
     const paramsString = 'entity=CasePortal&_id=63ede77bdb2af5bf9b05faf2';
+    console.log(`paramsString: ${paramsString}`);
     const searchParams = new URLSearchParams(paramsString);
     console.log(JSON.stringify(searchParams, null, 2));
     if (searchParams.entity == 'CasePortal' && searchParams._id) {
