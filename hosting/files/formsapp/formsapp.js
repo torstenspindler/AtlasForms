@@ -521,6 +521,7 @@ async function formsOnLoad () {
     
     const paramsString = 'entity=CasePortal&_id=63ede77bdb2af5bf9b05faf2';
     const searchParams = new URLSearchParams(paramsString);
+    console.log(JSON.stringify(searchParams, null, 2));
     if (searchParams.entity == 'CasePortal' && searchParams._id) {
       console.log('AutoSearch to CasePortal and case 63ede77bdb2af5bf9b05faf2')
       autoSearch('support.casePortal', {'_id': searchParams._id});
