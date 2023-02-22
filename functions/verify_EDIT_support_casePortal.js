@@ -50,7 +50,6 @@ function verify(grant, targetRecord, proposedEdit) {
 }
 
 exports = async function () {
-  // Check sendToWebhook, force deployment
   // Don't call the function - just return it so we can call it by reference.
-  return verify(1,2,4);
+  return verify; //(1,2,4);
 };
