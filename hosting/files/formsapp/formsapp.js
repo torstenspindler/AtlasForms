@@ -519,7 +519,7 @@ async function formsOnLoad () {
     vueApp.editing = true // Can edit in empty form
     vueApp.ready = true;
     
-    const paramsString = 'entity=CasePortal&_id=63ede77bdb2af5bf9b05faf2';
+    const paramsString = window.location.search.substring(1); // 'entity=CasePortal&_id=63ede77bdb2af5bf9b05faf2';
     console.log(`paramsString: ${paramsString}`);
     const searchParams = new URLSearchParams(paramsString);
     console.log(searchParams.toString());
